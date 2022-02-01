@@ -92,7 +92,7 @@ if __name__ == '__main__':
     #cv2.destroyAllWindows()
 
     
-    cv2.imwrite('imgs/output.jpg', img)
+    cv2.imwrite('imgs/output.jpg', image)
 
 
 
