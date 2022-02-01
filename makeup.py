@@ -1,5 +1,6 @@
 import cv2
 import os
+import re
 import numpy as np
 from skimage.filters import gaussian
 from test import evaluate
@@ -8,8 +9,14 @@ import argparse
 
 def parse_args():
     parse = argparse.ArgumentParser()
-    parse.add_argument('--img-path', default='imgs/116.jpg')
+    parse.add_argument('--imgpath', default='imgs/116.jpg')
+    parser.add_argument('-h', '--hair', type=str)
+    parser.add_argument('-l', '--lowerlip', type=str)
+    parser.add_argument('-u', '--upperlip', type=str)
     return parse.parse_args()
+
+def parse_bgr(str):
+    pattern = '^[bB]\d+[gG]\d+[rR]\d+'
 
 
 def sharpen(img):
@@ -70,7 +77,11 @@ if __name__ == '__main__':
         'lower_lip': 13
     }
 
-    image_path = args.img_path
+    image_path = args.imgpath
+    hair_bgr = args.hair
+    
+    print(hair_bgr)
+    
     cp = 'cp/79999_iter.pth'
 
     image = cv2.imread(image_path)
