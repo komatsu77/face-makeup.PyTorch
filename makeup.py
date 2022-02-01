@@ -10,9 +10,9 @@ import argparse
 def parse_args():
     parse = argparse.ArgumentParser()
     parse.add_argument('--imgpath', default='imgs/116.jpg')
-    parse.add_argument('-h', '--hair', type=str)
-    parse.add_argument('-l', '--lowerlip', type=str)
-    parse.add_argument('-u', '--upperlip', type=str)
+    parse.add_argument('--hair', type=str)
+    parse.add_argument('--lowerlip', type=str)
+    parse.add_argument('--upperlip', type=str)
     return parse.parse_args()
 
 def parse_bgr(str):
